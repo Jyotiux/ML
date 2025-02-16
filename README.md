@@ -83,7 +83,7 @@ Evaluating performance using appropriate metrics for multioutput tasks.
 
 The Logistic Regression classifier predicts whether an email is spam (1) or ham (0) based on the extracted features.
 
-#####Data Processing Pipeline
+##### Data Processing Pipeline
       
 Before classification, we process raw emails into numerical features.
 
