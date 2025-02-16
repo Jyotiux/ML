@@ -54,3 +54,26 @@ Model Training & Evaluation
 Trained an SVM classifier (SVC) and Random Forest classifier.
 Performed 10-fold cross-validation to compare models.
 Achieved ~73% accuracy with SVM and ~81% accuracy with Random Forest.
+
+## Digits
+
+1. Binary Classification with SGD Classifier
+Implementing a Stochastic Gradient Descent (SGD) Classifier for binary classification.
+Training the model to distinguish between two classes efficiently.
+Utilizing decision functions to analyze confidence scores and decision boundaries.
+Evaluating model performance using accuracy metrics and confusion matrices.
+Handling data scaling with StandardScaler to improve classification results.
+2. Multiclass Classification
+Using SGDClassifier, RandomForestClassifier, and Naive Bayes for multiclass classification.
+Implementing One-vs-All (OvA) and One-vs-One (OvO) strategies for binary-based classifiers.
+Generating confusion matrices and normalized confusion matrices to analyze misclassification.
+Visualizing misclassified images to detect patterns in model errors.
+3. Multilabel Classification
+Training a K-Nearest Neighbors (KNN) classifier to predict multiple labels for each instance.
+Defining multiple target labels, such as identifying large digits (7, 8, 9) or odd/even classification.
+Evaluating multilabel models using F1-score and cross-validation techniques.
+4. Multioutput Classification
+Implementing a Multioutput classifier where each instance has multiple target variables.
+Training models to predict multiple outputs simultaneously, such as denoising images by predicting pixel values.
+Using algorithms like RandomForestClassifier to handle correlated target variables.
+Evaluating performance using appropriate metrics for multioutput tasks.
