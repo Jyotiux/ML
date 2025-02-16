@@ -87,6 +87,7 @@ The Logistic Regression classifier predicts whether an email is spam (1) or ham 
 Before classification, we process raw emails into numerical features.
 
 Step 1: Convert Emails to Word Counts
+
 preprocess_pipeline = Pipeline([
 
     ("email_to_wordcount", EmailToWordCounterTransformer()),
@@ -98,42 +99,63 @@ preprocess_pipeline = Pipeline([
 EmailToWordCounterTransformer():
 
 Extracts text from emails.
+
 Removes headers, punctuation, numbers, and converts text to lowercase.
+
 Uses stemming to reduce words to their root form.
+
 Converts the email into a dictionary of word counts.
+
 WordCounterToVectorTransformer():
+
 Creates a sparse matrix of word frequencies.
+
 Each email becomes a feature vector of word counts.
+
  Example Output:
 
 email 1 → {'buy': 2, 'viagra': 1, 'free': 3, 'win': 2}
+
 email 2 → {'meeting': 1, 'schedule': 2, 'agenda': 1}
+
 Each email is now represented as a vector of word frequencies.
 
 
  Training the Logistic Regression Classifier
 
 log_clf = LogisticRegression(solver="lbfgs", max_iter=1000, random_state=42)
+
 log_clf.fit(X_train_transformed, y_train)
+
 Takes transformed email data (X_train_transformed) and the corresponding labels (y_train).
+
 Finds patterns in word usage that differentiate spam from ham.
 
  
  Making Predictions
 
 y_pred = log_clf.predict(X_test_transformed)
+
 Uses the trained model to classify new emails as spam (1) or ham (0).
+
 How Logistic Regression Makes a Decision
+
 Logistic Regression outputs a probability (0 to 1) for spam.
+
 If P(spam) > 0.5, it's classified as spam (1), otherwise ham (0).
+
  Example Decision:
 
 P(spam | email) = 0.89  → Spam (1)
+
 P(spam | email) = 0.23  → Ham (0)
 
  Evaluating the Model
 
 precision = precision_score(y_test, y_pred)  # How many predicted spams are correct?
+
 recall = recall_score(y_test, y_pred)        # How many actual spams were detected?
+
 High precision → The model rarely misclassifies ham as spam.
+
 High recall → The model correctly identifies most spam emails.
