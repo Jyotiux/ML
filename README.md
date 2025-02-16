@@ -87,14 +87,16 @@ The Logistic Regression classifier predicts whether an email is spam (1) or ham 
 Before classification, we process raw emails into numerical features.
 
 Step 1: Convert Emails to Word Counts
-python
-Copy
-Edit
 preprocess_pipeline = Pipeline([
+
     ("email_to_wordcount", EmailToWordCounterTransformer()),
+    
     ("wordcount_to_vector", WordCounterToVectorTransformer()),
+    
 ])
+
 EmailToWordCounterTransformer():
+
 Extracts text from emails.
 Removes headers, punctuation, numbers, and converts text to lowercase.
 Uses stemming to reduce words to their root form.
