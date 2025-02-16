@@ -83,7 +83,7 @@ Evaluating performance using appropriate metrics for multioutput tasks.
 
 The Logistic Regression classifier predicts whether an email is spam (1) or ham (0) based on the extracted features.
 
-###Data Processing Pipeline
+#####Data Processing Pipeline
       
 Before classification, we process raw emails into numerical features.
 
@@ -122,7 +122,7 @@ email 2 → {'meeting': 1, 'schedule': 2, 'agenda': 1}
 Each email is now represented as a vector of word frequencies.
 
 
-### Training the Logistic Regression Classifier
+##### Training the Logistic Regression Classifier
 
 log_clf = LogisticRegression(solver="lbfgs", max_iter=1000, random_state=42)
 
@@ -133,7 +133,7 @@ Takes transformed email data (X_train_transformed) and the corresponding labels 
 Finds patterns in word usage that differentiate spam from ham.
 
  
-### Making Predictions
+##### Making Predictions
 
 y_pred = log_clf.predict(X_test_transformed)
 
@@ -151,7 +151,7 @@ P(spam | email) = 0.89  → Spam (1)
 
 P(spam | email) = 0.23  → Ham (0)
 
-### Evaluating the Model
+##### Evaluating the Model
 
 precision = precision_score(y_test, y_pred)  # How many predicted spams are correct?
 
