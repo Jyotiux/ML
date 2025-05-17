@@ -63,16 +63,19 @@ Training the model to distinguish between two classes efficiently.
 Utilizing decision functions to analyze confidence scores and decision boundaries.
 Evaluating model performance using accuracy metrics and confusion matrices.
 Handling data scaling with StandardScaler to improve classification results.
-2. Multiclass Classification
+
+3. Multiclass Classification
 Using SGDClassifier, RandomForestClassifier, and Naive Bayes for multiclass classification.
 Implementing One-vs-All (OvA) and One-vs-One (OvO) strategies for binary-based classifiers.
 Generating confusion matrices and normalized confusion matrices to analyze misclassification.
 Visualizing misclassified images to detect patterns in model errors.
-3. Multilabel Classification
+
+5. Multilabel Classification
 Training a K-Nearest Neighbors (KNN) classifier to predict multiple labels for each instance.
 Defining multiple target labels, such as identifying large digits (7, 8, 9) or odd/even classification.
 Evaluating multilabel models using F1-score and cross-validation techniques.
-4. Multioutput Classification
+
+7. Multioutput Classification
 Implementing a Multioutput classifier where each instance has multiple target variables.
 Training models to predict multiple outputs simultaneously, such as denoising images by predicting pixel values.
 Using algorithms like RandomForestClassifier to handle correlated target variables.
@@ -88,14 +91,17 @@ The Logistic Regression classifier predicts whether an email is spam (1) or ham 
 Before classification, we process raw emails into numerical features.
 
  Convert Emails to Word Counts
+ 
+`     
 
-preprocess_pipeline = Pipeline([
+      preprocess_pipeline = Pipeline([
 
     ("email_to_wordcount", EmailToWordCounterTransformer()),
     
     ("wordcount_to_vector", WordCounterToVectorTransformer()),
     
-])
+      ])
+`
 
 EmailToWordCounterTransformer():
 
@@ -124,9 +130,12 @@ Each email is now represented as a vector of word frequencies.
 
 ##### Training the Logistic Regression Classifier
 
-log_clf = LogisticRegression(solver="lbfgs", max_iter=1000, random_state=42)
+`
 
-log_clf.fit(X_train_transformed, y_train)
+      log_clf = LogisticRegression(solver="lbfgs", max_iter=1000, random_state=42)
+
+      log_clf.fit(X_train_transformed, y_train)
+`
 
 Takes transformed email data (X_train_transformed) and the corresponding labels (y_train).
 
@@ -135,7 +144,9 @@ Finds patterns in word usage that differentiate spam from ham.
  
 ##### Making Predictions
 
-y_pred = log_clf.predict(X_test_transformed)
+`
+      y_pred = log_clf.predict(X_test_transformed)
+`
 
 Uses the trained model to classify new emails as spam (1) or ham (0).
 
@@ -152,10 +163,12 @@ P(spam | email) = 0.89  → Spam (1)
 P(spam | email) = 0.23  → Ham (0)
 
 ##### Evaluating the Model
+`
 
-precision = precision_score(y_test, y_pred)  # How many predicted spams are correct?
+      precision = precision_score(y_test, y_pred)  # How many predicted spams are correct?
 
-recall = recall_score(y_test, y_pred)        # How many actual spams were detected?
+      recall = recall_score(y_test, y_pred)        # How many actual spams were detected?
+`
 
 High precision → The model rarely misclassifies ham as spam.
 
